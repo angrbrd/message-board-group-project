@@ -5,7 +5,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true
-    }
+    },
+    // postID identifies the starred post
+    postID: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
   },
   // Associate a post with the author who liked it
   {
