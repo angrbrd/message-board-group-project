@@ -1,10 +1,11 @@
 // Requiring our models
 var db = require("../models");
+var log = require("loglevel").getLogger("post-api-routes");
 
 module.exports = function(app) {
   // Retrieve the list of all posts
   app.get("/api/posts", function(req, res) {
-    console.log('___ENTER GET /api/posts___');
+    log.debug('___ENTER GET /api/posts___');
 
     // If the request is specifying a particular author
     var query = {};
@@ -20,7 +21,7 @@ module.exports = function(app) {
       res.json(dbPost);
     })
     .catch(function (err) {
-      console.log("ERR = " + err);
+      log.error("ERR = " + err);
 
       res.json({status: "ERROR", message: err});
     });
@@ -28,9 +29,8 @@ module.exports = function(app) {
 
   // Retrieve a specific post by postID
   app.get("/api/posts/:postID", function(req, res) {
-    console.log('___ENTER GET /api/posts/:postID___');
-
-    console.log('postID = ' + req.params.postID);
+    log.debug('___ENTER GET /api/posts/:postID___');
+    log.debug('postID = ' + req.params.postID);
 
     // Add a join here to include the Author who wrote the Post
     db.Post.findOne({
@@ -39,7 +39,7 @@ module.exports = function(app) {
       },
       include: [ db.Author ]
     }).then(function(dbPost) {
-      console.log(dbPost);
+      log.debug(dbPost);
 
       // Check if the post is null, i.e no such post
       if (dbPost === null) {
@@ -51,7 +51,7 @@ module.exports = function(app) {
       }
     })
     .catch(function (err) {
-      console.log("ERR = " + err);
+      log.error("ERR = " + err);
 
       res.json({status: "ERROR", message: err});
     });
@@ -59,14 +59,14 @@ module.exports = function(app) {
 
   // Create a new post
   app.post("/api/posts", function(req, res) {
-    console.log('___ENTER POST /api/posts___');
+    log.debug('___ENTER POST /api/posts___');
 
     db.Post.create(req.body)
     .then(function(dbPost) {
       res.json(dbPost);
     })
     .catch(function (err) {
-      console.log("ERR = " + err);
+      log.error("ERR = " + err);
 
       res.json({status: "ERROR", message: err});
     });
@@ -74,9 +74,8 @@ module.exports = function(app) {
 
   // Depete a specific post by postID
   app.delete("/api/posts/:postID", function(req, res) {
-    console.log('___ENTER DELETE /api/posts/:postID___');
-
-    console.log('postID = ' + req.params.postID);
+    log.debug('___ENTER DELETE /api/posts/:postID___');
+    log.debug('postID = ' + req.params.postID);
 
     db.Post.destroy({
       where: {
@@ -86,7 +85,7 @@ module.exports = function(app) {
       res.json(dbPost);
     })
     .catch(function (err) {
-      console.log("ERR = " + err);
+      log.error("ERR = " + err);
 
       res.json({status: "ERROR", message: err});
     });
@@ -94,9 +93,8 @@ module.exports = function(app) {
 
   // Update a specific post by postID
   app.put("/api/posts/:postID", function(req, res) {
-    console.log('___ENTER PUT /api/posts/:postID___');
-
-    console.log('postID = ' + req.params.postID);
+    log.debug('___ENTER PUT /api/posts/:postID___');
+    log.debug('postID = ' + req.params.postID);
 
     db.Post.update(
       req.body,
@@ -108,7 +106,7 @@ module.exports = function(app) {
         res.json(dbPost);
       })
       .catch(function (err) {
-        console.log("ERR = " + err);
+        log.error("ERR = " + err);
 
         res.json({status: "ERROR", message: err});
       });

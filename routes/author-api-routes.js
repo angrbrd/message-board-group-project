@@ -1,10 +1,11 @@
 // Requiring our models
 var db = require("../models");
+var log = require("loglevel").getLogger("author-api-routes");
 
 module.exports = function(app) {
   // Retrieve the list of all authors
   app.get("/api/authors", function(req, res) {
-    console.log('___ENTER GET /api/authors___');
+    log.debug('___ENTER GET /api/authors___');
 
     // Add a join to include all of each Author's Posts
     db.Author.findAll({ include: [ db.Post ] })
@@ -12,7 +13,7 @@ module.exports = function(app) {
       res.json(dbAuthor);
     })
     .catch(function (err) {
-      console.log("ERR = " + err);
+      log.error("ERR = " + err);
 
       res.json({status: "ERROR", message: err});
     });
@@ -20,9 +21,8 @@ module.exports = function(app) {
 
   // Retrieve a specific author by authorID
   app.get("/api/authors/:authorID", function(req, res) {
-    console.log('___ENTER GET /api/authors/:authorID___');
-
-    console.log('authorID = ' + req.params.authorID);
+    log.debug('___ENTER GET /api/authors/:authorID___');
+    log.debug('authorID = ' + req.params.authorID);
 
     // Add a join to include all of the Author's Posts here
     db.Author.findOne({
@@ -32,7 +32,7 @@ module.exports = function(app) {
       include: [ db.Post ]
     })
     .then(function(dbAuthor) {
-      console.log("dbAuthor = " + JSON.stringify(dbAuthor));
+      log.debug("dbAuthor = " + JSON.stringify(dbAuthor));
 
       // Check if the author is null, i.e no such author
       if (dbAuthor === null) {
@@ -44,7 +44,7 @@ module.exports = function(app) {
       }
     })
     .catch(function (err) {
-      console.log("ERR = " + err);
+      log.error("ERR = " + err);
 
       res.json({status: "ERROR", message: err});
     });
@@ -52,7 +52,7 @@ module.exports = function(app) {
 
   // Create a new author entry
   app.post("/api/authors", function(req, res) {
-    console.log('___ENTER POST /api/authors___');
+    log.debug('___ENTER POST /api/authors___');
 
     db.Author.create(req.body)
     .then(function(dbAuthor) {
@@ -60,7 +60,7 @@ module.exports = function(app) {
     })
     .catch(function(err) {
       // Need better error handling here...
-      console.log("ERR = " + err);
+      log.error("ERR = " + err);
 
       res.json({status: "ERROR", message: err});
     });
@@ -68,9 +68,8 @@ module.exports = function(app) {
 
   // Delete a specific author by authorID
   app.delete("/api/authors/:authorID", function(req, res) {
-    console.log('___ENTER DELETE /api/authors/:authorID___');
-
-    console.log('authorID = ' + req.params.authorID);
+    log.debug('___ENTER DELETE /api/authors/:authorID___');
+    log.debug('authorID = ' + req.params.authorID);
 
     db.Author.destroy({
       where: {
@@ -80,7 +79,7 @@ module.exports = function(app) {
       res.json(dbAuthor);
     })
     .catch(function(err) {
-      console.log("ERR = " + err);
+      log.error("ERR = " + err);
 
       res.json({status: "ERROR", message: err});
     });

@@ -7,6 +7,19 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 
+// Add logging package
+// =============================================================
+var log = require("loglevel");
+// Production deployment
+if (process.env.NODE_ENV) {
+	console.log("Setting log level to ERROR");
+	log.setLevel("ERROR");
+} else { // Development
+	var level = process.env.LOG_LEVEL || "DEBUG";
+	console.log("Setting log level to " + level);
+	log.setLevel(level);
+}
+
 // Sets up the Express App
 // =============================================================
 var app = express();

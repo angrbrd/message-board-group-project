@@ -1,10 +1,11 @@
 // Requiring our models
 var db = require("../models");
+var log = require("loglevel").getLogger("favorites-api-routes");
 
 module.exports = function(app) {
   // Retrieve a list of all the favorites
   app.get("/api/favorites", function(req, res) {
-    console.log('___ENTER GET /api/favorites___');
+    log.debug('___ENTER GET /api/favorites___');
 
     // If the request is specifying a particular author
     var query = {};
@@ -21,7 +22,7 @@ module.exports = function(app) {
       res.json(dbPost);
     })
     .catch(function (err) {
-      console.log("ERR = " + err);
+      log.error("ERR = " + err);
 
       res.json({status: "ERROR", message: err});
     });
@@ -29,9 +30,8 @@ module.exports = function(app) {
 
   // Retrieve a specific favorite by favoriteID
   app.get("/api/favorites/:favoriteID", function(req, res) {
-    console.log('___ENTER GET /api/favorites/:favoriteID___');
-
-    console.log('favoriteID = ' + req.params.favoriteID);
+    log.debug('___ENTER GET /api/favorites/:favoriteID___');
+    log.debug('favoriteID = ' + req.params.favoriteID);
 
     // Add a join here to include the Author who wrote the Post
     db.Favorite.findOne({
@@ -40,7 +40,7 @@ module.exports = function(app) {
       },
       include: [ db.Author ]
     }).then(function(dbPost) {
-      console.log(dbPost);
+      log.debug(dbPost);
 
       // Check if the favorite is null, i.e no such favorite
       if (dbPost === null) {
@@ -52,7 +52,7 @@ module.exports = function(app) {
       }
     })
     .catch(function (err) {
-      console.log("ERR = " + err);
+      log.error("ERR = " + err);
 
       res.json({status: "ERROR", message: err});
     });
@@ -60,14 +60,14 @@ module.exports = function(app) {
 
   // Create a new favorite
   app.post("/api/favorites", function(req, res) {
-    console.log('___ENTER POST /api/favorites___');
+    log.debug('___ENTER POST /api/favorites___');
 
     db.Favorite.create(req.body)
     .then(function(dbPost) {
       res.json(dbPost);
     })
     .catch(function (err) {
-      console.log("ERR = " + err);
+      log.error("ERR = " + err);
 
       res.json({status: "ERROR", message: err});
     });
@@ -75,9 +75,8 @@ module.exports = function(app) {
 
   // Depete a specific favorite by favoriteID
   app.delete("/api/favorites/:favoriteID", function(req, res) {
-    console.log('___ENTER DELETE /api/favorites/:favoriteID___');
-
-    console.log('favoriteID = ' + req.params.favoriteID);
+    log.debug('___ENTER DELETE /api/favorites/:favoriteID___');
+    log.debug('favoriteID = ' + req.params.favoriteID);
 
     db.Favorite.destroy({
       where: {
@@ -87,7 +86,7 @@ module.exports = function(app) {
       res.json(dbPost);
     })
     .catch(function (err) {
-      console.log("ERR = " + err);
+      log.error("ERR = " + err);
 
       res.json({status: "ERROR", message: err});
     });
