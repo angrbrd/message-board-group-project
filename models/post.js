@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
     // Post votes will default to zero for a new post
     votes: {
       type: DataTypes.INTEGER,
-      defaultValue: 0,
+      defaultValue: 0
     }
   },
   // Associate a post with an author

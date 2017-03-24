@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     postID: {
       type: DataTypes.INTEGER,
       allowNull: false
-    },
+    }
   },
   // Associate a post with the author who liked it
   {
