@@ -6,10 +6,12 @@ module.exports = function(app) {
   app.get("/api/posts", function(req, res) {
     console.log('___ENTER GET /api/posts___');
 
+    // If the request is specifying a particular author
     var query = {};
-    if (req.query.authorID) {
-      query.authorID = req.query.authorID;
+    if (req.query.author) {
+      query.AuthorID = req.query.author;
     }
+
     // Add a join here to include all of the Authors to these posts
     db.Post.findAll({
       where: query,
@@ -30,12 +32,11 @@ module.exports = function(app) {
 
     console.log('postID = ' + req.params.postID);
 
-    var query = {};
-    query.postID = req.params.postID;
-
     // Add a join here to include the Author who wrote the Post
     db.Post.findOne({
-      where: query,
+      where: {
+        id: req.params.postID
+      },
       include: [ db.Author ]
     }).then(function(dbPost) {
       console.log(dbPost);
@@ -77,11 +78,10 @@ module.exports = function(app) {
 
     console.log('postID = ' + req.params.postID);
 
-    var query = {};
-    query.postID = req.params.postID;
-
     db.Post.destroy({
-      where: query
+      where: {
+        id: req.params.postID
+      }
     }).then(function(dbPost) {
       res.json(dbPost);
     })
@@ -98,13 +98,12 @@ module.exports = function(app) {
 
     console.log('postID = ' + req.params.postID);
 
-    var query = {};
-    query.postID = req.params.postID;
-
     db.Post.update(
       req.body,
       {
-        where: query
+        where: {
+          id: req.params.postID
+        }
       }).then(function(dbPost) {
         res.json(dbPost);
       })

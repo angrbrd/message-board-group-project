@@ -27,9 +27,9 @@ module.exports = function(app) {
     // Add a join to include all of the Author's Posts here
     db.Author.findOne({
       where: {
-        authorID: req.params.authorID
-        // include: [ db.Post ]
-      }
+        id: req.params.authorID
+      },
+      include: [ db.Post ]
     })
     .then(function(dbAuthor) {
       console.log("dbAuthor = " + JSON.stringify(dbAuthor));
@@ -74,7 +74,7 @@ module.exports = function(app) {
 
     db.Author.destroy({
       where: {
-        authorID: req.params.authorID
+        id: req.params.authorID
       }
     }).then(function(dbAuthor) {
       res.json(dbAuthor);
