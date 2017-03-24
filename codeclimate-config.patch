@@ -1,0 +1,33 @@
+engines:
+  csslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+      - python
+      - php
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+ratings:
+  paths:
+  - "**.css"
+  - "**.inc"
+  - "**.js"
+  - "**.jsx"
+  - "**.module"
+  - "**.php"
+  - "**.py"
+  - "**.rb"
+exclude_paths:
+- "config/"
+- "node_modules/"
+- "public/css/bootstrap.css"
+- "public/js/bootstrap.js"
+- "public/js/bootstrap.min.js"
+- "public/js/jquery.js"
+- "public/js/tether.min.js"

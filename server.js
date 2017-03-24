@@ -37,4 +37,3 @@ db.sequelize.sync().then(function() {
     console.log("Beddit is listening on PORT " + PORT);
   });
 });
-
