@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Favorite = sequelize.define("Favorite", {
-    // Make favoriteID the primary key with type INTEGER
-    favoriteID: {
+    // Make id the primary key with type INTEGER
+    id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true

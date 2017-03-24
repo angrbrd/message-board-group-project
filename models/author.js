@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Author = sequelize.define("Author", {
-    // Make authorID the primary key with type INTEGER
-    authorID: {
+    // Make id the primary key with type INTEGER
+    id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true
