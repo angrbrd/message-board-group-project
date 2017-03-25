@@ -1,16 +1,16 @@
 // Requiring our models
 var db = require("../models");
-var log = require("loglevel").getLogger("author-api-routes");
+var log = require("loglevel").getLogger("user-api-routes");
 
 module.exports = function(app) {
-  // Retrieve the list of all authors
-  app.get("/api/authors", function(req, res) {
-    log.debug('___ENTER GET /api/authors___');
+  // Retrieve the list of all users
+  app.get("/api/users", function(req, res) {
+    log.debug('___ENTER GET /api/users___');
 
-    // Add a join to include all of each Author's Posts
-    db.Author.findAll({ include: [ db.Post ] })
-    .then(function(dbAuthor) {
-      res.json(dbAuthor);
+    // Add a join to include all of each User's Posts
+    db.User.findAll({ include: [ db.Post ] })
+    .then(function(dbUser) {
+      res.json(dbUser);
     })
     .catch(function (err) {
       log.error("ERR = " + err);
@@ -19,28 +19,28 @@ module.exports = function(app) {
     });
   });
 
-  // Retrieve a specific author by authorID
-  app.get("/api/authors/:authorID", function(req, res) {
-    log.debug('___ENTER GET /api/authors/:authorID___');
-    log.debug('authorID = ' + req.params.authorID);
+  // Retrieve a specific user by UserID
+  app.get("/api/users/:userID", function(req, res) {
+    log.debug('___ENTER GET /api/users/:userID___');
+    log.debug('userID = ' + req.params.userID);
 
-    // Add a join to include all of the Author's Posts here
-    db.Author.findOne({
+    // Add a join to include all of the User's Posts here
+    db.User.findOne({
       where: {
-        id: req.params.authorID
+        id: req.params.userID
       },
       include: [ db.Post ]
     })
-    .then(function(dbAuthor) {
-      log.debug("dbAuthor = " + JSON.stringify(dbAuthor));
+    .then(function(dbUser) {
+      log.debug("dbUser = " + JSON.stringify(dbUser));
 
-      // Check if the author is null, i.e no such author
-      if (dbAuthor === null) {
+      // Check if the user is null, i.e no such user
+      if (dbUser === null) {
         // Return an empty object
         res.json({});
       } else {
-        // Return existing author data
-        res.json(dbAuthor);
+        // Return existing user data
+        res.json(dbUser);
       }
     })
     .catch(function (err) {
@@ -50,13 +50,13 @@ module.exports = function(app) {
     });
   });
 
-  // Create a new author entry
-  app.post("/api/authors", function(req, res) {
-    log.debug('___ENTER POST /api/authors___');
+  // Create a new user entry
+  app.post("/api/users", function(req, res) {
+    log.debug('___ENTER POST /api/users___');
 
-    db.Author.create(req.body)
-    .then(function(dbAuthor) {
-      res.json(dbAuthor);
+    db.User.create(req.body)
+    .then(function(dbUser) {
+      res.json(dbUser);
     })
     .catch(function(err) {
       // Need better error handling here...
@@ -66,17 +66,17 @@ module.exports = function(app) {
     });
   });
 
-  // Delete a specific author by authorID
-  app.delete("/api/authors/:authorID", function(req, res) {
-    log.debug('___ENTER DELETE /api/authors/:authorID___');
-    log.debug('authorID = ' + req.params.authorID);
+  // Delete a specific user by userID
+  app.delete("/api/users/:userID", function(req, res) {
+    log.debug('___ENTER DELETE /api/users/:userID___');
+    log.debug('userID = ' + req.params.userID);
 
-    db.Author.destroy({
+    db.User.destroy({
       where: {
-        id: req.params.authorID
+        id: req.params.userID
       }
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
+    }).then(function(dbUser) {
+      res.json(dbUser);
     })
     .catch(function(err) {
       log.error("ERR = " + err);

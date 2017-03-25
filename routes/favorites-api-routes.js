@@ -7,16 +7,16 @@ module.exports = function(app) {
   app.get("/api/favorites", function(req, res) {
     log.debug('___ENTER GET /api/favorites___');
 
-    // If the request is specifying a particular author
+    // If the request is specifying a particular user
     var query = {};
-    if (req.query.author) {
-      query.AuthorID = req.query.author;
+    if (req.query.user) {
+      query.UserID = req.query.user;
     }
 
-    // Add a join here to include all of the Authors to these favorites
+    // Add a join here to include all of the Users to these favorites
     db.Favorite.findAll({
       where: query,
-      include: [ db.Author ]
+      include: [ db.User ]
     })
     .then(function(dbPost) {
       res.json(dbPost);
@@ -33,12 +33,12 @@ module.exports = function(app) {
     log.debug('___ENTER GET /api/favorites/:favoriteID___');
     log.debug('favoriteID = ' + req.params.favoriteID);
 
-    // Add a join here to include the Author who wrote the Post
+    // Add a join here to include the User who wrote the Post
     db.Favorite.findOne({
       where: {
         id: req.params.favoriteID
       },
-      include: [ db.Author ]
+      include: [ db.User ]
     }).then(function(dbPost) {
       log.debug(dbPost);
 

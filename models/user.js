@@ -1,12 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
-  var Author = sequelize.define("Author", {
+  var User = sequelize.define("User", {
     // Make id the primary key with type INTEGER
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true
     },
-    // Author name is required, null is not allowed
+    // User name is required, null is not allowed
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
-    // Author email is required and must be unique
+    // User email is required and must be unique
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -32,25 +32,25 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
-    // Author photo and about entries are not required
+    // User photo and about entries are not required
     photoLink: DataTypes.STRING,
     about: DataTypes.STRING
   },
-  // Associate an author with posts and favorites
+  // Associate an User with posts and favorites
   {
     classMethods: {
       associate: function(models) {
-        // Associate Author with Posts
-        // When an Author is deleted, also delete any associated Posts
-        Author.hasMany(models.Post, {
+        // Associate User with Posts
+        // When a User is deleted, also delete any associated Posts
+        User.hasMany(models.Post, {
           onDelete: "cascade"
         });
-        // Associate Author with Favorites
-        // When an Author is deleted, do not delete the Favorites as they may be other users' posts
-        Author.hasMany(models.Favorite);
+        // Associate User with Favorites
+        // When a User is deleted, do not delete the Favorites as they may be other users' posts
+        User.hasMany(models.Favorite);
       }
     }
   });
 
-  return Author;
+  return User;
 };

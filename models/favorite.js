@@ -12,12 +12,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   },
-  // Associate a post with the author who liked it
+  // Associate a post with the User who liked it
   {
     classMethods: {
       associate: function(models) {
-        // An Author (foreignKey) is required or a favorite can't be recorded
-        Favorite.belongsTo(models.Author, {
+        // A User (foreignKey) is required or a favorite can't be recorded
+        Favorite.belongsTo(models.User, {
           foreignKey: {
             allowNull: false
           }

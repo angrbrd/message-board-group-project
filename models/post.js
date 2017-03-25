@@ -45,12 +45,12 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   },
-  // Associate a post with an author
+  // Associate a post with a user
   {
     classMethods: {
       associate: function(models) {
-        // An Author (foreignKey) is required or a Post can't be made
-        Post.belongsTo(models.Author, {
+        // A User (foreignKey) is required or a Post can't be made
+        Post.belongsTo(models.User, {
           foreignKey: {
             allowNull: false
           }

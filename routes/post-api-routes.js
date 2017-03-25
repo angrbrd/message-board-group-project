@@ -7,16 +7,16 @@ module.exports = function(app) {
   app.get("/api/posts", function(req, res) {
     log.debug('___ENTER GET /api/posts___');
 
-    // If the request is specifying a particular author
+    // If the request is specifying a particular user
     var query = {};
-    if (req.query.author) {
-      query.AuthorID = req.query.author;
+    if (req.query.user) {
+      query.UserID = req.query.user;
     }
 
-    // Add a join here to include all of the Authors to these posts
+    // Add a join here to include all of the users to these posts
     db.Post.findAll({
       where: query,
-      include: [ db.Author ]
+      include: [ db.User ]
     }).then(function(dbPost) {
       res.json(dbPost);
     })
@@ -32,12 +32,12 @@ module.exports = function(app) {
     log.debug('___ENTER GET /api/posts/:postID___');
     log.debug('postID = ' + req.params.postID);
 
-    // Add a join here to include the Author who wrote the Post
+    // Add a join here to include the User who wrote the Post
     db.Post.findOne({
       where: {
         id: req.params.postID
       },
-      include: [ db.Author ]
+      include: [ db.User ]
     }).then(function(dbPost) {
       log.debug(dbPost);
 
