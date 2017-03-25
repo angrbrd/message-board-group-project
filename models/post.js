@@ -32,6 +32,16 @@ module.exports = function(sequelize, DataTypes) {
     votes: {
       type: DataTypes.INTEGER,
       defaultValue: 0
+    },
+    //photolink will point to the thumbnail
+    photolink: {
+      type: DataTypes.STRING,
+      allowNull: false, 
+      validate:{
+        isURL:{
+          msg: "The photo link must be a valid URL"
+        }
+      }
     }
   },
   // Associate a post with an author
