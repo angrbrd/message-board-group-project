@@ -33,9 +33,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       defaultValue: 0
     },
-    //photolink will point to the thumbnail
+    // photolink will point to the thumbnail
     photolink: {
       type: DataTypes.STRING,
+      defaultValue: "https://pando-assets.s3.amazonaws.com/uploads/2013/07/screen-shot-2013-07-08-at-4-17-49-pm.png",
       allowNull: false, 
       validate:{
         isURL:{
