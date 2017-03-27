@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "m1918bar",
     "database": "message_board",
     "host": "127.0.0.1",
     "dialect": "mysql"
