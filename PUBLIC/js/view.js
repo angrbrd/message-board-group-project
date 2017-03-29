@@ -30,10 +30,22 @@ $(document).ready(function() {
     var postVotes = post.votes;
     var postPhoto = post.photolink;
     var postCreated = moment(post.createdAt, "YYYYMMDD").fromNow();
+<<<<<<< HEAD
 
 
    var newInputRow = $(`<br><div class="col-md-9" id = "post_` + postID + `">
                 <div class="row">
+=======
+    var userID = post.User.id;
+    var postUser = post.User.name;
+
+
+
+   var newInputRow = $(`<br><div class="col-md-9" id = "post_` + postID + `">
+
+                <div class="row">
+
+
                 <div class="col-md-2">
                     <div align="center"><img src="upvote" class="tiny upvoteButton"> </div></img>
                     <div class="mediumtext" align="center">   ` + postVotes + ` 
@@ -44,12 +56,26 @@ $(document).ready(function() {
                 <div class="col-md-2">
                     <img src="` + postPhoto + ` " class="picture">
                 </div>
+
+
+                <div class="col-md-2">
+                    <img src="` + postPhoto + ` " class="picture">
+                </div>
+
+
                 <div class="col-md-8">
                     <h4><a href="/api/posts/` + postID + `">` + postTitle + ` </a></h4>
                 <p id = "postBody"> ` + postBody + `
                 </p>
+
                 <p class="small">Created ` + postCreated + `</p>
                 </div>
+
+                <p class="small">Created ` + postCreated + ` by <a href="/api/users/` + userID + `">` + postUser + ` </a></p>
+
+                </div>
+
+
                 </div> `);
 
    return newInputRow;
