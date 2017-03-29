@@ -29,10 +29,10 @@ $(document).ready(function() {
     var postBody = post.body;
     var postVotes = post.votes;
     var postPhoto = post.photolink;
-    var postCreated = post.createdAt;
+    var postCreated = moment(post.createdAt, "YYYYMMDD").fromNow();
 
 
-   var newInputRow = $(`<div class="col-md-9" id = "post_` + postID + `">
+   var newInputRow = $(`<br><div class="col-md-9" id = "post_` + postID + `">
 
                 <div class="row">
 
@@ -50,8 +50,9 @@ $(document).ready(function() {
 
                 <div class="col-md-8">
                     <h4><a href="/api/posts/` + postID + `">` + postTitle + ` </a></h4>
-                <p class="small" id = "postBody"> ` + postBody + `
+                <p id = "postBody"> ` + postBody + `
                 </p>
+                <p class="small">Created ` + postCreated + `</p>
 
                 </div>
 
