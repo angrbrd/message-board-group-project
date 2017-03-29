@@ -45,7 +45,7 @@ require("./routes/favorites-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
 // Include the {force: true} parameter if you need to update the models
-db.sequelize.sync().then(function() {
+db.sequelize.sync({force: false}).then(function() {
   app.listen(PORT, function() {
     console.log("Beddit is listening on PORT " + PORT);
   });
