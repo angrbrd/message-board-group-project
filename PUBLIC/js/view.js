@@ -37,4 +37,8 @@ $(document).ready(function() {
     return newInputRow;
   }
 
+  $(function () {
+    $('#myTab a:last').tab('show')
+  })
+
 });

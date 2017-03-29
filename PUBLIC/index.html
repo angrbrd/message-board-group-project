@@ -35,9 +35,20 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="container">
-            <a class="navbar-brand" href="#">Better Reddit (Beddit)</a>
+            <a class="navbar-brand" href="#home">Better Reddit (Beddit)</a>
             <div class="collapse navbar-collapse" id="navbarExample">
             </div>
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#posts" role="tab" aria-controls="posts">Posts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#authors" role="tab" aria-controls="authors">Authors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#favorites" role="tab" aria-controls="favorites">Favorites</a>
+              </li>
+            </ul>
         </div>
     </nav>
 
@@ -89,171 +100,35 @@
 
         <br /> <br /> <br />
 
-        <!-- Row that holds manual entries -->
-        <div class="row">
-
-
-            <div class="col-md-9">
-
+        <div class="tab content">
+            <div class="tab-pane active" id="posts" role="tabpanel"> test1
+                <!-- Row that holds manual entries -->
                 <div class="row">
-
-                <div class="col-md-2">
-                    <div align="center"><img src="upvote" class="tiny"> </div></img>
-                    <div class="mediumtext" align="center"> 
-                        4700
+                    <div class="col-md-9">
+                    posts
                     </div>
-                    <div align="center"><img src="downvote" class="tiny"> </div></img>
-                </div>
-
-                <div class="col-md-2">
-                    <img src="a.jpg" class="picture">
-                </div>
-
-                <div class="col-md-8">
-                    <h4> <a href="www.google.com"> This story is number 1. </a></h4>
-                <p class="small"> 
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-                </p>
-
-                </div>
-
-                </div> 
-
-                <div class="row">
-
-                <div class="col-md-2">
-                    <div align="center"><img src="upvote" class="tiny"> </div></img>
-                    <div class="mediumtext" align="center"> 
-                        4800
-                    </div>
-                    <div align="center"><img src="downvote" class="tiny"> </div></img>
-                </div>
-
-                <div class="col-md-2">
-                    <img src="http://weknowyourdreams.com/images/kittens/kittens-07.jpg" class="picture">
-                </div>
-
-                <div class="col-md-8">
-                    <h4> <a href="www.google.com"> This story is number 2. </a></h4>
-                <p class="small"> 
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-                </p>
-
-                </div> 
-
-                </div> 
-
-                <div class="row">
-
-                <div class="col-md-2">
-                    <div align="center"><img src="upvote" class="tiny"> </div></img>
-                    <div class="mediumtext" align="center"> 
-                        4900
-                    </div>
-                    <div align="center"><img src="downvote" class="tiny"> </div></img>
-                </div>
-
-                <div class="col-md-2">
-                    <img src="c.jpg" class="picture">
-                </div>
-
-                <div class="col-md-8">
-                    <h4> <a href="www.google.com"> This story is number 3. </a></h4>
-                <p class="small"> 
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-                </p>
-
-                </div>
-
-                </div>
-
-                <div class="row">
-
-                <div class="col-md-2">
-                    <div align="center"><img src="upvote" class="tiny"> </div></img>
-                    <div class="mediumtext" align="center"> 
-                        5000
-                    </div>
-                    <div align="center"><img src="downvote" class="tiny"> </div></img>
-                </div>
-
-                <div class="col-md-2">
-                    <img src="d.jpg" class="picture">
-                </div>
-
-                <div class="col-md-8">
-                    <h4> <a href="www.google.com"> This story is number 4. </a></h4>
-                <p class="small"> 
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-                </p>
-
-                </div>
-
-                </div>
-
-                <div class="row">
-
-                <div class="col-md-2">
-                    <div align="center"><img src="upvote" class="tiny"> </div></img>
-                    <div class="mediumtext" align="center"> 
-                        5100
-                    </div>
-                    <div align="center"><img src="downvote" class="tiny"> </div></img>
-                </div>
-
-                <div class="col-md-2">
-                    <img src="e.jpg" class="picture">
-                </div>
-
-                <div class="col-md-8">
-                    <h4> <a href="www.google.com"> This story is number 5. </a></h4>
-                <p class="small"> 
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-                </p>
-
-                </div>
-
-                </div>
-
-                <div class="row">
-
-                <div class="col-md-2">
-                    <div align="center"><img src="upvote" class="tiny"> </div></img>
-                    <div class="mediumtext" align="center"> 
-                        5200
-                    </div>
-                    <div align="center"><img src="downvote" class="tiny"> </div></img>
-                </div>
-
-                <div class="col-md-2">
-                    <img src="f.jpg" class="picture">
-                </div>
-
-                <div class="col-md-8">
-                    <h4> <a href="www.google.com"> This story is number 6. </a></h4>
-                <p class="small"> 
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-                </p>
-
-                </div>
-
-                </div>  
-
+                </div> <!-- End row that holds manual entries -->
             </div>
+            <div class="tab-pane" id="authors" role="tabpanel"> test 2
+                <div class="row">
+                        <div class="col-md-9-authors">
+                        authors
+                        </div>
+                    </div> <!-- End row that holds manual entries -->
+                </div>
+            </div>
+            <div class="tab-pane" id="favorites" role="tabpanel">test 3 
+                <div class="row">
+                        <div class="col-md-9-favories">
+                        favorites
+                        </div>
+                    </div> <!-- End row that holds manual entries -->
+                </div>
+            </div>
+                    
 
-        </div> <!-- End row that holds manual entries -->
+
+        </div> 
 
     </div> <!-- End main Bootstrap container -->
 
@@ -267,6 +142,8 @@
 
     <!-- Initializing the Firebase UI -->
     <script src="js/firebase_ui.js" type="text/javascript"></script>
+
+    
 
 </body>
 </html>
