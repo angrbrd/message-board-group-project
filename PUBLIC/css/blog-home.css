@@ -57,6 +57,10 @@ body {
     z-index: 1;
 }
 
+.hidden {
+    display: none;
+}
+
 @media (max-width: 576px) {
     nav > .container {
         width: 100%;
