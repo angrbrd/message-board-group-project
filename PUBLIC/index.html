@@ -20,8 +20,8 @@
 
     <!-- Links to CSS Stylesheets -->
     <link href="css/bootstrap.css" rel="stylesheet">
-    <script src="js/tether.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/tether.min.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
     <link href="css/blog-home.css" rel="stylesheet">
 
@@ -38,6 +38,17 @@
             <a class="navbar-brand" href="#">Better Reddit (Beddit)</a>
             <div class="collapse navbar-collapse" id="navbarExample">
             </div>
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#posts" role="tab" aria-controls="posts">Posts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#authors" role="tab" aria-controls="authors">Authors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#favorites" role="tab" aria-controls="favorites">Favorites</a>
+              </li>
+            </ul>
         </div>
     </nav>
 
@@ -65,76 +76,45 @@
 
             <!-- User info section -->
             <div class="col col-md-3" id="userInfo">
-                <h3>Beddit</h3>
+                <br><h3>Beddit</h3>
+                <h4>Sign in to create new content</h4>
 
                 <!-- Main user info container -->
-                <div id="loading">Loading...</div>
-                <div id="loaded" class="hidden">
-                    <div id="mainInfoContainer">
-                        <!-- User signed in -->
-                        <div id="user-signed-in" class="hidden">
-                            <div id="user-info">
-                                <div id="photo-container">
-                                    <img src="" alt="User image" id="user-image" style="width: 150px">
-                                </div>
-                                <div id="name"></div>
-                                <div id="email"></div>
-                                <div class="clearfix"></div>
+                <div id="mainInfoContainer">
+                    <!-- User signed in -->
+                    <div id="user-signed-in">
+                        <div id="user-info">
+                            <div id="photo-container">
+                                <img id="photo"></img>
                             </div>
+                            <div id="name"></div>
+                            <div id="email"></div>
+                            <div class="clearfix"></div>
+                        </div>
 
-                            <p>
-                                <button id="logout-button">Sign Out</button>
-                            </p>
-                        </div> <!-- End user signed in -->
+                        <p>
+                            <button id="sign-out">Sign Out</button>
+                        </p>
+                    </div> <!-- End user signed in -->
 
-                        <!-- User signed out -->
-                        <div id="user-signed-out" class="hidden">
-                            <h4>Sign in to create new content</h4>
+                    <!-- User signed out -->
+                    <div id="user-signed-out" class="hidden">
+                        <h4>You are signed out.</h4>
 
-                            <div id="firebaseui-spa">
-                                <div id="firebaseui-auth-container"></div>
-                            </div>
-                        </div> <!-- End user signed out -->
-                    </div> <!-- End main user info container -->
-                </div> <!-- End loaded -->
+                        <div id="firebaseui-spa">
+                            <h5>Sign In Options</h5>
+                            
+                            <div id="firebaseui-auth-container"></div>
+                        </div>
+                    </div> <!-- End user signed out -->
+                </div> <!-- End main user info container -->
             </div> <!-- End user info section -->
         </div> <!-- End row that holds DB entries -->
 
         <br /> <br /> <br />
 
-<<<<<<< Updated upstream
-        <!-- Row that holds manual entries -->
-        <div class="row">
-
-        <div class="tab content">
-            <div class="tab-pane fade in active" id="posts" role="tabpanel">
-                <!-- Row that holds manual entries -->
-                <div class="row">
-                    <div class="col-md-9">                    
-                    </div>
-                </div> <!-- End row that holds manual entries -->
-            </div>
-            <div class="tab-pane fade in active" id="authors" role="tabpanel">
-                <div class="row">
-                    <div class="col-md-9-authors">                        
-                    </div>
-                </div> <!-- End row that holds manual entries -->
-            </div>
-            <div class="tab-pane fade in active" id="favorites" role="tabpanel"> 
-                <div class="row">
-                    <div class="col-md-9-favorites">                        
-                    </div>
-                </div> <!-- End row that holds manual entries -->
-            </div>
-        </div>
-
-        </div>
-
-        </div> <!-- End row that holds manual entries -->
-=======
         
         
->>>>>>> Stashed changes
 
     </div> <!-- End main Bootstrap container -->
 
