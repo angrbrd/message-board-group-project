@@ -75,6 +75,7 @@ var handleSignedInUser = function(user) {
 
   // Update the UI display
   $('#name').html(displayName);
+
   $('#email').html(email);
   if (photoURL) {
     $('#user-image').attr('src', photoURL);

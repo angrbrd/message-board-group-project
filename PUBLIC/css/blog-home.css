@@ -82,10 +82,51 @@ body {
     text-align: center;
 }
 
-#user-signed-out > h4 {
+#user-info > #name, #user-info > #email {
+    font-family: 'Metrophobic', sans-serif;
+}
+
+#signInPrompt {
     font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: light;
     text-align: center;
+    border: 2px dashed #994066;
+}
+
+#welcomeTag {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: light;
+    text-align: center;
+    border: 2px dashed #994066;
+}
+
+.center {
+    margin: auto;
+    width: 100%;
+    /*border: 2px dashed #994066;*/
+    padding: 5px;
+    text-align: center;
+
+}
+
+#logout-button {
+    height: 30px;
+    width: 100%;
+    border-radius: 30px;
+    background-color: #994066;
+    border: #994066;
+    color: white;
+    box-shadow: 0 3px #999;
+}
+
+#logout-button:hover {
+    background-color: #7a3351;
+}
+
+#logout-button:active {
+  background-color: #7a3351;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 @media (max-width: 576px) {

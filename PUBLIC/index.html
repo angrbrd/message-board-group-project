@@ -26,6 +26,9 @@
     <link href="css/blog-home.css" rel="stylesheet">
     <link href="css/firebase-ui.css" rel="stylesheet">
 
+    <!-- Linking Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Metrophobic" rel="stylesheet">
+
     <!-- Link to Moment.js -->
     <script src="http://momentjs.com/downloads/moment.js"></script>
 </head>
@@ -71,12 +74,14 @@
                     <div id="mainInfoContainer">
                         <!-- User signed in -->
                         <div id="user-signed-in" class="hidden">
+                            <h4 class="center" id="welcomeTag">Welcome</h4>
+
                             <div id="user-info">
-                                <div id="photo-container">
+                                <h4 class="center" id="name"></h4>
+                                <div class="center" id="photo-container">
                                     <img src="" alt="User image" id="user-image" style="width: 150px">
                                 </div>
-                                <div id="name"></div>
-                                <div id="email"></div>
+                                <div class="center" id="email"></div>
                                 <div class="clearfix"></div>
                             </div>
 
@@ -87,7 +92,7 @@
 
                         <!-- User signed out -->
                         <div id="user-signed-out" class="hidden">
-                            <h4>Sign in to create new content</h4>
+                            <h4 id="signInPrompt">Sign in to create new content</h4>
 
                             <div id="firebaseui-spa">
                                 <div id="firebaseui-auth-container"></div>
