@@ -23,7 +23,7 @@ $("#save-image-button").on("click", function() {
   var imgLink = $("#user-image-entry").val().trim();
 
   // Place the Ajax call to update the user image
-  $.put("api/users/" + currentUserID, {"photoLink": imgLink})
+  $.put("/api/users/" + currentUserID, {"photoLink": imgLink})
   .done(function(data) {
     // Close the modal dialog
     $('#imageModal').modal('hide');
@@ -44,8 +44,8 @@ $("#save-about-button").on("click", function() {
   // Grab the about text from the modal dialog
   var aboutTxt = $("#user-about-entry").val().trim();
 
-  // Place the Ajax call to update the user image
-  $.put("api/users/" + currentUserID, {"about": aboutTxt})
+  // Place the Ajax call to update the user about entry
+  $.put("/api/users/" + currentUserID, {"about": aboutTxt})
   .done(function(data) {
     // Close the modal dialog
     $('#aboutModal').modal('hide');
@@ -63,12 +63,25 @@ $("#save-about-cancel").on("click", function() {
 $("#create-post-button").on("click", function() {
   console.log('Create post button clicked!');
   
+  // Grab the post information from the modal dialog
+  var postTitle = $("#post-title-entry").val().trim();
+  var postThumbnail = $("#post-thumbnail-entry").val().trim();
+  var postContent = $("#post-content-entry").val().trim();
 
+  // Place the Ajax call to create a new post
+  $.post("/api/posts", 
+    {
+      "title": postTitle,
+      "body": postContent,
+      "UserUid": currentUserID,
+      "photolink": postThumbnail
+    })
+  .done(function(data) {
+    // Close the modal dialog
+    $('#postModal').modal('hide');
 
-
-
-
-  $('#postModal').modal('hide');
+    window.location.replace("/");
+  });
 });
 
 $("#create-post-cancel").on("click", function() {
