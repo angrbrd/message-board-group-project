@@ -103,7 +103,6 @@ body {
 .center {
     margin: auto;
     width: 100%;
-    /*border: 2px dashed #994066;*/
     padding: 5px;
     text-align: center;
 
@@ -132,6 +131,14 @@ body {
 .actionButton {
     margin-left: 15px;
     margin-right: 15px;
+    border: none;
+    background-color: white;
+}
+
+.actionButton:hover {
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #e0c5d1;
 }
 
 @media (max-width: 576px) {
