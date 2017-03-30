@@ -129,6 +129,11 @@ body {
   transform: translateY(4px);
 }
 
+.actionButton {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
 @media (max-width: 576px) {
     nav > .container {
         width: 100%;
