@@ -54,7 +54,13 @@ module.exports = function(app) {
   app.post("/api/users", function(req, res) {
     log.debug('___ENTER POST /api/users___');
 
-    db.User.create(req.body)
+    var request = req.body;
+    // If there is no email supplied in the request body, set it to null
+    if (request.email === "") {
+      request.email = null;
+    }
+
+    db.User.create(request)
     .then(function(dbUser) {
       res.json(dbUser);
     })

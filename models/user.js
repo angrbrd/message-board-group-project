@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
     // User email is required and must be unique
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true, // setting to true as Tritter FIP does not return an email
       unique: true,
       validate: {
         len: {

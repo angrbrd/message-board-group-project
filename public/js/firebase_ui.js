@@ -73,19 +73,73 @@ var handleSignedInUser = function(user) {
       })
   );
 
-  // Update the UI display
-  $('#name').html(displayName);
+  // Check database for existence of user entry
+  $.get("/api/users/" + currentUserID, function(data) {
+    // If an empty object is returned from the database, the user does not exist
+    if ($.isEmptyObject(data)) {
+      console.log('New user!');
 
-  $('#email').html(email);
-  if (photoURL) {
-    $('#user-image').attr('src', photoURL);
-    $('#user-image').show();
-  } else {
-    $('#user-image').attr('src', 'bio_placeholder.jpg');
-    $('#user-image').show();
-  }
-  $('#user-signed-in').show();
-  $('#user-signed-out').hide();
+      // Add the new user entry to the database
+      $.post("/api/users",
+        {
+          "uid": currentUserID,
+          "name": displayName,
+          "email": email,
+          "photoLink": photoURL
+        })
+      .done(function(data) {
+        // And error has occurred during the creation of the user
+        if (data.status === "ERROR") {
+          console.log('ERROR: ' + data.message.message + 
+                      ' details: ' + data.message.errors);
+
+          return false;
+        } else {
+          // Update the UI display
+          $('#name').html(displayName);
+          $('#email').html(email);
+
+          // Check if the user has a photoURL from the identity provider
+          if (photoURL) {
+            // User image from identity provider
+            $('#user-image').attr('src', photoURL);
+            $('#user-image').show();
+          } else {
+            // Placeholder image if none available
+            $('#user-image').attr('src', 'bio_placeholder.jpg');
+            $('#user-image').show();
+          }
+
+          $('#user-signed-in').show();
+          $('#user-signed-out').hide();
+        }
+      });
+    } else {
+      console.log('Existing user!');
+
+      // Update the UI display
+      $('#name').html(displayName);
+      $('#email').html(email);
+
+      // Check if the user has a different image stored in the database
+      if (data.photoLink) {
+        // User image from database
+        $('#user-image').attr('src', data.photoLink);
+        $('#user-image').show();
+      } else if (photoURL) {
+        // User image from identity provider
+        $('#user-image').attr('src', photoURL);
+        $('#user-image').show();
+      } else {
+        // Placeholder image if none available
+        $('#user-image').attr('src', 'bio_placeholder.jpg');
+        $('#user-image').show();
+      }
+
+      $('#user-signed-in').show();
+      $('#user-signed-out').hide();
+    }
+  });
 };
 
 // handleSignedOutUser presents the appropriate UI to a non-authenticated user
