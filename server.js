@@ -6,6 +6,7 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var path = require("path");
 
 // Add logging package
 // =============================================================
@@ -26,7 +27,7 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
-var db = require("./models");
+var db = require(path.join(__dirname, 'models'));
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -35,7 +36,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory
-app.use(express.static("./public"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes =============================================================
 
@@ -45,7 +46,7 @@ require("./routes/favorites-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
 // Include the {force: true} parameter if you need to update the models
-db.sequelize.sync().then(function() {
+db.sequelize.sync({force: true}).then(function() {
   app.listen(PORT, function() {
     console.log("Beddit is listening on PORT " + PORT);
   });
