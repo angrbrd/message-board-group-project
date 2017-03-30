@@ -108,6 +108,14 @@ body {
 
 }
 
+.justify {
+    margin: auto;
+    width: 98%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
 #logout-button {
     height: 30px;
     width: 100%;

@@ -85,7 +85,8 @@ var handleSignedInUser = function(user) {
           "uid": currentUserID,
           "name": displayName,
           "email": email,
-          "photoLink": photoURL
+          "photoLink": photoURL,
+          "about": "About me..."
         })
       .done(function(data) {
         // And error has occurred during the creation of the user
@@ -98,6 +99,7 @@ var handleSignedInUser = function(user) {
           // Update the UI display
           $('#name').html(displayName);
           $('#email').html(email);
+          $('#about').html('About me...');
 
           // Check if the user has a photoURL from the identity provider
           if (photoURL) {
@@ -120,6 +122,7 @@ var handleSignedInUser = function(user) {
       // Update the UI display
       $('#name').html(displayName);
       $('#email').html(email);
+      $('#about').html(data.about);
 
       // Check if the user has a different image stored in the database
       if (data.photoLink) {

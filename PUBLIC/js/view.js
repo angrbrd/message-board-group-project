@@ -41,12 +41,17 @@ $("#save-image-cancel").on("click", function() {
 $("#save-about-button").on("click", function() {
   console.log('Save about button clicked!');
   
+  // Grab the about text from the modal dialog
+  var aboutTxt = $("#user-about-entry").val().trim();
 
+  // Place the Ajax call to update the user image
+  $.put("api/users/" + currentUserID, {"about": aboutTxt})
+  .done(function(data) {
+    // Close the modal dialog
+    $('#aboutModal').modal('hide');
 
-
-
-
-  $('#aboutModal').modal('hide');
+    window.location.replace("/");
+  });
 });
 
 $("#save-about-cancel").on("click", function() {
