@@ -1,16 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    // Make id the primary key with type INTEGER
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    // uid is the unique user identifier in Firebase
+    // uid is the unique user identifier in Firebase, make it the primary key
     uid: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
+      primaryKey: true
     },
     // User name is required, null is not allowed
     name: {

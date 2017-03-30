@@ -48,60 +48,57 @@ db.sequelize.sync({force: true}).then(function() {
             "title": "Anya's 1st post!",
             "body": "COOL",
             "votes": "10",
-            "UserId": "1",
-            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg",
+            "UserUid": "111",
+            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg"
         },
         {
             "title": "Tom’s post",
             "body": "COOL",
             "votes": "20",
-            "UserId": "2",
-            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg",
+            "UserUid": "222",
+            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg"
         },
         {
             "title": "Jack's post",
             "body": "COOL",
             "votes": "30",
-            "UserId": "3",
-            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg",
+            "UserUid": "333",
+            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg"
         },
         {
             "title": "Kevin’s post",
             "body": "SUPER COOL!!!",
             "votes": "35",
-            "UserId": "4",
-            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg",
+            "UserUid": "444",
+            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg"
         },
         {
             "title": "Anya's 2st post!",
             "body": "super duper COOL",
             "votes": "10",
-            "UserId": "1",
-            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg",
+            "UserUid": "111",
+            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg"
         },
         {
             "title": "Tom’s computer post",
             "body": " not COOL",
             "votes": "20",
-            "UserId": "2",
-            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg",
-
+            "UserUid": "222",
+            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg"
         },
         {
             "title": "Jack's happy post",
             "body": "happy happy happy",
             "votes": "30",
-            "UserId": "3",
-            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg",
-
+            "UserUid": "333",
+            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg"
         },
         {
             "title": "Kevin’s 2nd post",
             "body": "SUPER COOL!!!",
             "votes": "35",
-            "UserId": "4",
-            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg",
-
+            "UserUid": "444",
+            "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg"
         }
     ],
     { individualHooks: true })
@@ -116,27 +113,27 @@ db.sequelize.sync({force: true}).then(function() {
     db.Favorite.bulkCreate([
         {
             "postID": "3",
-            "UserId": "2"
+            "UserUid": "222"
         },
         {
             "postID": "3",
-            "UserId": "1"
+            "UserUid": "111"
         },
         {
             "postID": "5",
-            "UserId": "1"
+            "UserUid": "111"
         },
         {
             "postID": "6",
-            "UserId": "3"
+            "UserUid": "333"
         },
         {
             "postID": "1",
-            "UserId": "2"
+            "UserUid": "222"
         },
         {
             "postID": "2",
-            "UserId": "4"
+            "UserUid": "444"
         }
     ],
     { individualHooks:true })
