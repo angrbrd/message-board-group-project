@@ -6,6 +6,12 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true,
       primaryKey: true
     },
+    // uid is the unique user identifier in Firebase
+    uid: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
     // User name is required, null is not allowed
     name: {
       type: DataTypes.STRING,

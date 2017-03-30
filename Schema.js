@@ -6,12 +6,14 @@ db.sequelize.sync({force: true}).then(function() {
     db.User.bulkCreate([
         {
             "name": "Anya",
+            "uid": "111",
             "email": "anya@anya.com",
             "photoLink": "http://weknowyourdreams.com/images/kittens/kittens-07.jpg",
             "about": "Hi!!!"
         },
         {
             "name": "Tom",
+            "uid": "222",
             "email": "tom@tom.com",
             "photoLink": "https://static.esea.net/global/images/users/679780.1432877411.jpg",
             "about": "HELLO!!!"
@@ -19,12 +21,14 @@ db.sequelize.sync({force: true}).then(function() {
 
         {
             "name": "Jack",
+            "uid": "333",
             "email": "jack@jack.com",
             "photoLink": "https://www.thesafaricollection.com/wp-content/uploads/2016/01/Lynns-Giraffe-Tongue-The-Safari-Collection.jpg",
             "about": "Jack says hi!"
         },
         {
             "name": "Kevin",
+            "uid": "444",
             "email": "kevin@kevin.com",
             "photoLink": "https://www.thesafaricollection.com/wp-content/uploads/2016/01/Lynns-Giraffe-Tongue-The-Safari-Collection.jpg",
             "about": "KEVIN HERE!"
