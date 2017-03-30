@@ -16,6 +16,7 @@ module.exports = function(app) {
     // Add a join here to include all of the users to these posts
     db.Post.findAll({
       where: query,
+      order: [["votes", "DESC"]],
       include: [ db.User ]
     }).then(function(dbPost) {
       res.json(dbPost);
