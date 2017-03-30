@@ -92,6 +92,45 @@ $("#create-post-cancel").on("click", function() {
   $("#post-content-entry").val("");
 });
 
+// Register event handlers for the upvote and downvote buttons
+$(document).on("click", ".upvoteButton", updateUpDownVote);
+$(document).on("click", ".downvoteButton", updateUpDownVote);
+
+// updateUpDownVote updates the database entries for upvote and downvote
+function updateUpDownVote() {
+  console.log("ENTER updateUpDownVote");
+
+  var postElement = $(this).closest(".retrieved-post");
+  var postID = postElement.attr("id");
+  var id = postID.substring(postID.indexOf("_") + 1, postID.length);
+  var votes = parseInt(postElement.find(".postVoteCount").text());
+
+  // Upvote button clicked
+  if ($(this).hasClass("upvoteButton")) {
+    // Handle upvote button
+    console.log("Upvote");
+
+    postElement.find(".postVoteCount").text(votes + 1);
+
+    // Update the database entry
+    $.put("/api/posts/" + id, {"votes": votes + 1})
+    .done(function(data) {
+      console.log('Updated votes in database');
+    });
+  } else if ($(this).hasClass("downvoteButton")) {
+    // Handle downvote button
+    console.log("Downvote");
+
+    postElement.find(".postVoteCount").text(votes - 1); 
+
+    // Update the database entry
+    $.put("/api/posts/" + id, {"votes": votes - 1})
+    .done(function(data) {
+      console.log('Updated votes in database');
+    });
+  }
+}
+
 $(document).ready(function() {
   var postContainer = $(".post-container");
 
@@ -129,15 +168,13 @@ $(document).ready(function() {
 
 
 
-   var newInputRow = $(`<br><div class="col-md-9" id = "post_` + postID + `">
+   var newInputRow = $(`<br><div class="retrieved-post col-md-9" id = "post_` + postID + `">
 
                 <div class="row">
 
                 <div class="col-md-2">
                     <div align="center"><img src="upvote" class="tiny upvoteButton"> </div></img>
-                    <div class="mediumtext" align="center">   ` + postVotes + ` 
-                
-                    </div>
+                    <div class="mediumtext postVoteCount" align="center">   ` + postVotes + ` </div>
                     <div align="center"><img src="downvote" class="tiny downvoteButton"> </div></img>
                 </div>
 
