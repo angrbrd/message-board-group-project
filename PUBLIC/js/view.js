@@ -1,3 +1,79 @@
+// Define the jQuery Ajax PUT function
+$.put = function(url, data, callback, type) {
+  if ( $.isFunction(data) ){
+    type = type || callback,
+    callback = data,
+    data = {}
+  }
+ 
+  return $.ajax({
+    url: url,
+    type: 'PUT',
+    success: callback,
+    data: data,
+    contentType: type
+  });
+}
+
+// Register event handlers for the modal dialogs
+$("#save-image-button").on("click", function() {
+  console.log('Save image button clicked!');
+
+  // Grab the image link from the modal dialog
+  var imgLink = $("#user-image-entry").val().trim();
+
+  // Place the Ajax call to update the user image
+  $.put("api/users/" + currentUserID, {"photoLink": imgLink})
+  .done(function(data) {
+    // Close the modal dialog
+    $('#imageModal').modal('hide');
+
+    window.location.replace("/");
+  });
+});
+
+$("#save-image-cancel").on("click", function() {
+  console.log('Cancel button clicked!');
+
+  $("#user-image-entry").val("");
+});
+
+$("#save-about-button").on("click", function() {
+  console.log('Save about button clicked!');
+  
+
+
+
+
+
+  $('#aboutModal').modal('hide');
+});
+
+$("#save-about-cancel").on("click", function() {
+  console.log('Cancel button clicked!');
+  
+  $("#user-about-entry").val("");
+});
+
+$("#create-post-button").on("click", function() {
+  console.log('Create post button clicked!');
+  
+
+
+
+
+
+  $('#postModal').modal('hide');
+});
+
+$("#create-post-cancel").on("click", function() {
+  console.log('Cancel button clicked!');
+  
+  $("#post-title-entry").val("");
+  $("#post-thumbnail-entry").val("");
+  $("#post-content-entry").val("");
+});
+
 $(document).ready(function() {
   var postContainer = $(".post-container");
 
