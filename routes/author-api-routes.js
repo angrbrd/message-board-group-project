@@ -19,15 +19,15 @@ module.exports = function(app) {
     });
   });
 
-  // Retrieve a specific user by UserID
-  app.get("/api/users/:userID", function(req, res) {
-    log.debug('___ENTER GET /api/users/:userID___');
-    log.debug('userID = ' + req.params.userID);
+  // Retrieve a specific user by uid
+  app.get("/api/users/:uid", function(req, res) {
+    log.debug('___ENTER GET /api/users/:uid___');
+    log.debug('uid = ' + req.params.uid);
 
     // Add a join to include all of the User's Posts here
     db.User.findOne({
       where: {
-        id: req.params.userID
+        uid: req.params.uid
       },
       include: [ db.Post ]
     })
@@ -66,14 +66,14 @@ module.exports = function(app) {
     });
   });
 
-  // Delete a specific user by userID
-  app.delete("/api/users/:userID", function(req, res) {
-    log.debug('___ENTER DELETE /api/users/:userID___');
-    log.debug('userID = ' + req.params.userID);
+  // Delete a specific user by uid
+  app.delete("/api/users/:uid", function(req, res) {
+    log.debug('___ENTER DELETE /api/users/:uid___');
+    log.debug('uid = ' + req.params.uid);
 
     db.User.destroy({
       where: {
-        id: req.params.userID
+        uid: req.params.uid
       }
     }).then(function(dbUser) {
       res.json(dbUser);

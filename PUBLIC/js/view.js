@@ -30,7 +30,7 @@ $(document).ready(function() {
     var postVotes = post.votes;
     var postPhoto = post.photolink;
     var postCreated = moment(post.createdAt, "YYYYMMDD").fromNow();
-    var userID = post.User.id;
+    var uid = post.User.uid;
     var postUser = post.User.name;
 
 
@@ -55,7 +55,7 @@ $(document).ready(function() {
                     <h4><a href="/api/posts/` + postID + `">` + postTitle + ` </a></h4>
                 <p id = "postBody"> ` + postBody + `
                 </p>
-                <p class="small">Created ` + postCreated + ` by <a href="/api/users/` + userID + `">` + postUser + ` </a></p>
+                <p class="small">Created ` + postCreated + ` by <a href="/api/users/` + uid + `">` + postUser + ` </a></p>
 
                 </div>
 
