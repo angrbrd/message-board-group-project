@@ -20,8 +20,8 @@
 
     <!-- Links to CSS Stylesheets -->
     <link href="css/bootstrap.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/tether.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
     <link href="css/blog-home.css" rel="stylesheet">
 
@@ -30,27 +30,26 @@
 </head>
 
 <body>
+
+    <!-- Navigational bar at the top -->
     <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Links in nav bar -->
         <div class="container">
-            <a class="navbar-brand" href="#">Better Reddit (Beddit)</a>
-            <div class="collapse navbar-collapse" id="navbarExample">
+            <a class="navbar-brand" href="/">Better Reddit (Beddit)</a>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="/" id="home">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="/" id="myPosts">My Posts</a>
+                    <a class="nav-item nav-link" href="/" id="myFavorites">My Favorites</a>
+                </div>
             </div>
-            <ul class="nav justify-content-end">
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#posts" role="tab" aria-controls="posts">Posts</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#authors" role="tab" aria-controls="authors">Authors</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#favorites" role="tab" aria-controls="favorites">Favorites</a>
-              </li>
-            </ul>
-        </div>
-    </nav>
+        </div> <!-- End links in nav bar -->
+    </nav> <!-- End navigational bar at the top -->
 
     <!-- Main Bootstrap container -->
     <div class="container">
@@ -58,21 +57,8 @@
         <!-- Row that holds DB entries -->
         <div class="row justify-content-md-center">
             <!-- Section that holds the DB post entries -->
-            
-             <div class="tab content">
-                <div class="tab-pane fade in active post-container col col-md-9" id="posts" role="tabpanel">
-                   
-                </div>
-                <div class="tab-pane fade post-container col col-md-9" id="authors" role="tabpanel">
-                    
-                </div>
-                <div class="tab-pane fade post-container col col-md-9" id="favorites" role="tabpanel"> 
-                    
-                </div>
+            <div class="post-container col col-md-9">
             </div>
-
-
-           
 
             <!-- User info section -->
             <div class="col col-md-3" id="userInfo">
@@ -109,12 +95,8 @@
                     </div> <!-- End user signed out -->
                 </div> <!-- End main user info container -->
             </div> <!-- End user info section -->
+
         </div> <!-- End row that holds DB entries -->
-
-        <br /> <br /> <br />
-
-        
-        
 
     </div> <!-- End main Bootstrap container -->
 
