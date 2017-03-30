@@ -72,6 +72,27 @@ module.exports = function(app) {
     });
   });
 
+  // Update a specific user entry by uid
+  app.put("/api/users/:uid", function(req, res) {
+    log.debug('___ENTER PUT /api/users/:uid___');
+    log.debug('uid = ' + req.params.uid);
+
+    db.User.update(
+      req.body,
+      {
+        where: {
+          uid: req.params.uid
+        }
+      }).then(function(dbPost) {
+        res.json(dbPost);
+      })
+      .catch(function (err) {
+        log.error("ERR = " + err);
+
+        res.json({status: "ERROR", message: err});
+      });
+  });
+
   // Delete a specific user by uid
   app.delete("/api/users/:uid", function(req, res) {
     log.debug('___ENTER DELETE /api/users/:uid___');
