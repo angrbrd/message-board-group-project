@@ -24,6 +24,7 @@
     <script src="js/bootstrap.min.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
     <link href="css/blog-home.css" rel="stylesheet">
+    <link href="css/firebase-ui.css" rel="stylesheet">
 
     <!-- Link to Moment.js -->
     <script src="http://momentjs.com/downloads/moment.js"></script>
@@ -32,7 +33,7 @@
 <body>
 
     <!-- Navigational bar at the top -->
-    <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse topNavBar">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -62,38 +63,38 @@
 
             <!-- User info section -->
             <div class="col col-md-3" id="userInfo">
-                <br><h3>Beddit</h3>
-                <h4>Sign in to create new content</h4>
+                <h3>Beddit</h3>
 
                 <!-- Main user info container -->
-                <div id="mainInfoContainer">
-                    <!-- User signed in -->
-                    <div id="user-signed-in">
-                        <div id="user-info">
-                            <div id="photo-container">
-                                <img id="photo"></img>
+                <div id="loading">Loading...</div>
+                <div id="loaded" class="hidden">
+                    <div id="mainInfoContainer">
+                        <!-- User signed in -->
+                        <div id="user-signed-in" class="hidden">
+                            <div id="user-info">
+                                <div id="photo-container">
+                                    <img src="" alt="User image" id="user-image" style="width: 150px">
+                                </div>
+                                <div id="name"></div>
+                                <div id="email"></div>
+                                <div class="clearfix"></div>
                             </div>
-                            <div id="name"></div>
-                            <div id="email"></div>
-                            <div class="clearfix"></div>
-                        </div>
 
-                        <p>
-                            <button id="sign-out">Sign Out</button>
-                        </p>
-                    </div> <!-- End user signed in -->
+                            <p>
+                                <button id="logout-button">Sign Out</button>
+                            </p>
+                        </div> <!-- End user signed in -->
 
-                    <!-- User signed out -->
-                    <div id="user-signed-out" class="hidden">
-                        <h4>You are signed out.</h4>
+                        <!-- User signed out -->
+                        <div id="user-signed-out" class="hidden">
+                            <h4>Sign in to create new content</h4>
 
-                        <div id="firebaseui-spa">
-                            <h5>Sign In Options</h5>
-                            
-                            <div id="firebaseui-auth-container"></div>
-                        </div>
-                    </div> <!-- End user signed out -->
-                </div> <!-- End main user info container -->
+                            <div id="firebaseui-spa">
+                                <div id="firebaseui-auth-container"></div>
+                            </div>
+                        </div> <!-- End user signed out -->
+                    </div> <!-- End main user info container -->
+                </div> <!-- End loaded -->
             </div> <!-- End user info section -->
 
         </div> <!-- End row that holds DB entries -->

@@ -53,12 +53,39 @@ body {
     font-size: 20px;
 }
 
+.topNavBar {
+    height: 100px;
+}
+
 .navbar-toggler {
     z-index: 1;
 }
 
 .hidden {
     display: none;
+}
+
+.post-container {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+#userInfo {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+#userInfo > h3 {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: bold;
+    color: #994066;
+    text-align: center;
+}
+
+#user-signed-out > h4 {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: light;
+    text-align: center;
 }
 
 @media (max-width: 576px) {

@@ -1,0 +1,21 @@
+.firebaseui-list-item {
+	height: 65px !important;
+}
+
+.firebaseui-idp-button {
+	padding-left: 18px;
+	text-align: center;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+}
+
+.firebaseui-idp-text {
+	display: none !important;
+}
+
+.firebaseui-idp-icon {
+	height: 30px !important;
+	width: 30px !important
+}
+
