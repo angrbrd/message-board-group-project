@@ -35,18 +35,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-// Static directory
-app.use(express.static(path.join(__dirname, '/public')));
-
-app.get('/', function(req, res) {
-	res.send('./public/index.html');
-})
-
 // Routes =============================================================
 
 require("./routes/author-api-routes.js")(app);
 require("./routes/post-api-routes.js")(app);
 require("./routes/favorites-api-routes.js")(app);
+
+// Static directory
+app.use(express.static('public'));
 
 // Syncing our sequelize models and then starting our express app
 // Include the {force: true} parameter if you need to update the models
