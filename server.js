@@ -44,7 +44,8 @@ require("./routes/post-api-routes.js")(app);
 require("./routes/favorites-api-routes.js")(app);
 
 // Static directory
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/PUBLIC'));
 
 // Syncing our sequelize models and then starting our express app
 // Include the {force: true} parameter if you need to update the models
