@@ -12,6 +12,8 @@ var path = require("path");
 // =============================================================
 var log = require("loglevel");
 // Production deployment
+console.log('process.env.NODE_ENV (in server.js) = ' + process.env.NODE_ENV);
+
 if (process.env.NODE_ENV) {
 	console.log("Setting log level to ERROR");
 	log.setLevel("ERROR");

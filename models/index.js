@@ -8,10 +8,14 @@ var env       = process.env.NODE_ENV || 'development';
 var config    = require(path.join(__dirname, '/../config/config.json'))[env];
 var db        = {};
 
+console.log('process.env.NODE_ENV (in index.js) = ' + process.env.NODE_ENV);
+
 var sequelize;
 if (config.use_env_variable) {
+  console.log('HERE 1, config.use_env_variable = ' + config.use_env_variable);
   sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
+  console.log('HERE 2, config.use_env_variable = ' + config.use_env_variable);
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
