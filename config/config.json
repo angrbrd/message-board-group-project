@@ -7,10 +7,7 @@
     "dialect": "mysql"
   },
   "test": {
-    "username": "gfweyyc9br8h0ucq",
-    "password": "dgn9dvoj3sxddfiw",
-    "database": "uksbh4t920y42xs7",
-    "host": "gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   },
   "production": {
