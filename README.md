@@ -6,7 +6,7 @@ All of us are familiar with the slighly ugly-fied UI of [reddit](https://www.red
 
 <img alt="Reddit UI image" src="public/reddit.png" width="800">
 
-In this project we embarked upon reproducing a similar functionality to reddit, yet adding some elements to it's visual appeal. Enter **Beddit**, a prettier version of the reddit web-app with a fleshed out UI and an authentication mechanism via familiar federated identity providers like Google, Facebook, and Tritter.
+In this project we embarked upon reproducing a similar functionality to reddit, yet adding some elements to it's visual appeal. Enter **Beddit**, a prettier version of the reddit web-app with a fleshed out UI and an authentication mechanism via familiar federated identity providers like Google, Facebook, and Twitter.
 
 ## Demo App
 
@@ -45,6 +45,11 @@ The technologies used to complete this project were:
 * **jQuery** - DOM manipulation
 * **Firebase** - user authentication
 * **REST** - server endpoint design
+* **Heroku** - application deployment
+*  **Slack** - communication
+*  **Github** - code repository and issue tracking
+*  **[body-parser](https://www.npmjs.com/package/body-parser)** - request payload parsing
+*  **[loglevel](https://www.npmjs.com/package/loglevel)** - minimalist logging framework
 
 ## Installation
 
