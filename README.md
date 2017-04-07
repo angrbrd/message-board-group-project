@@ -61,13 +61,13 @@ Run the Node.js server.
 
 	node server.js
 	
-Finally, access the app within your browser on the default port of `8080` with: `localhost:8080`. Log in through on of the supported federated identity providers and make some posts!
+Finally, access the app within your browser on the default port of `8080` with: `localhost:8080`. Log in through one of the supported federated identity providers and make some posts!
 
 <img alt="Styled Firebase UI image" src="public/ui-image.png" width="250">
 
 ## Future Work
 
-Future work on this project includes and is not limited to the following:
+Future work on this project includes but is not limited to the following:
 
 1) Implementing a landing page for individual posts. This page would display the complete post, author information, and creation/modification date.
 
